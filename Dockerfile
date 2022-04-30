@@ -1,6 +1,6 @@
 
 
-FROM golang:1.15-alpine
+FROM golang:alpine
 # This is the Dockerfile used for the action at the root of this repository (action.yml)
 USER root
 RUN apk update && apk add git curl bash ruby nodejs
