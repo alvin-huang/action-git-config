@@ -11,8 +11,9 @@ pwd
 ls -la
 git config -l
 git config -l --show-origin
-git config -l --local
-git config --get --local remote.origin.url
+# git config -l --local
+# git config --get --local remote.origin.url
+cat .git/config
 
 FOSSA_PROJECT=$(git config --get remote.origin.url)
 FOSSA_REVISION=$(git tag --points-at HEAD | cat)
