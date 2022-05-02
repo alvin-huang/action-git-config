@@ -5,6 +5,16 @@ if [ "$1" = "shell" ]; then
   exit
 fi
 
+# assume git safe.directory is the current working directory
+# in GitHub Actions there is a $GITHUB_WORKSPACE that is set in a docker container
+# Reference:
+#   - https://git-scm.com/docs/git-config/2.35.2
+#   - https://github.blog/2022-04-12-git-security-vulnerability-announced/
+safe_dir=$(pwd)
+if [ -n "$GITHUB_WORKSPACE" ]; then
+  safe_dir="$GITHUB_WORKSPACE"
+fi
+
 set -xeou pipefail
 
 pwd
@@ -15,7 +25,7 @@ git config -l --show-origin
 # git config --get --local remote.origin.url
 cat .git/config
 
-git config --global --add safe.directory /github/workspace
+git config --global --add safe.directory "$safe_dir"
 git rev-parse --abbrev-ref HEAD
 #git config --local user.name "foo bar"
 #git config -l --local
