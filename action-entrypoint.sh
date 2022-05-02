@@ -19,8 +19,9 @@ cat .git/config
 #git config -l --local
 
 git --git-dir=./.git status
-export GIT_DIR=./.git
-echo "after exporting GIT_DIR=./.git"
+
+git init
+git config -l
 
 FOSSA_PROJECT=$(git config --get remote.origin.url)
 FOSSA_REVISION=$(git tag --points-at HEAD | cat)
