@@ -8,7 +8,7 @@ fi
 set -xeou pipefail
 
 pwd
-ls -l
+ls -la
 git config -l
 git config -l --show-origin
 
