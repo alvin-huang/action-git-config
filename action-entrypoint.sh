@@ -10,6 +10,7 @@ set -xeou pipefail
 pwd
 ls -l
 git config -l
+git config -l --show-origin
 
 FOSSA_PROJECT=$(git config --get remote.origin.url)
 FOSSA_REVISION=$(git tag --points-at HEAD | cat)
