@@ -15,6 +15,7 @@ git config -l --show-origin
 # git config --get --local remote.origin.url
 cat .git/config
 
+git rev-parse --abbrev-ref HEAD
 #git config --local user.name "foo bar"
 #git config -l --local
 
